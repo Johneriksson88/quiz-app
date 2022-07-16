@@ -1,0 +1,120 @@
+/* Font import */
+
+@import url('https://fonts.googleapis.com/css2?family=Shrikhand&display=swap');
+
+
+* {
+    box-sizing: border-box;
+    font-family: Shrikhand, sans-serif;
+}
+
+body {
+    background-color: rgb(156, 156, 243);
+    padding: 0;
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    text-align: center;
+}
+
+body.correct {
+    background-color: green;
+}
+
+body.incorrect {
+    background-color: red;
+}
+
+h1 {
+  font-size: 3.5rem;
+  margin-bottom: 70px;
+  font-weight: 500;
+  text-shadow: 3px 2px rgb(57, 112, 231);
+}
+
+#welcome-text {
+  
+}
+
+#welcome-text span {
+  color: rgb(199, 6, 38);
+}
+
+#question-container {
+  width: 85%;
+  height: 65vh;
+  max-height: 450px;
+  max-width: 830px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 100px;
+  padding: 1%;
+}
+
+#question {
+  margin-top: 200px;
+  text-shadow: 3px 2px rgb(57, 112, 231);
+}
+
+#btn-area {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    justify-content: space-around;
+    gap: 20px;
+    margin: 20px 0;
+  }
+  
+button {
+    border-radius: 10px;
+    border: 4px solid black;
+    cursor: pointer;
+}
+.btn {
+    font-size: 2.1rem;
+    padding: 5px 15px;
+    margin: 0 10px;
+  }
+
+  .question-letter {
+    font-size: 3rem;
+  }
+
+  #img-container {
+    max-width:180px;
+    max-height:50px;
+    width: auto;
+    height: auto;
+    object-fit: cover;
+  }
+
+  .hide {
+    display: none;
+  }
+
+  #nav-buttons {
+    margin-top: 230px;
+  }
+  
+  #next-btn, #start-btn {
+    font-size: 3rem;
+    padding: 10px 20px;
+    margin: 0 20px;
+  }
+
+  #next-btn {
+    background-color: yellow;
+  }
+
+  #start-btn {
+    background-color: rgb(24, 209, 24);
+  }
+
+  #score-area {
+    margin: 5px auto;
+    width: 60%;
+    font-size: 1.2rem;
+}
+
+#score {
+  color: green;
+}
