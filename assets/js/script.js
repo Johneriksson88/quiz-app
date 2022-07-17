@@ -4,8 +4,8 @@ var questionsContainer
 var welcomeText
 var randomizedQuestions
 var currentQuestionIndex
-let questionElement = document.getElementById('question')
-let answerButtonsElement = document.getElementById('answer-buttons')
+var questionElement = document.getElementById('question')
+var answerButtonsElement = document.getElementById('answer-buttons')
 
 document.addEventListener("DOMContentLoaded", function() {
     startButton = document.getElementById('start-btn')
@@ -26,11 +26,11 @@ function startGame() {
     displayQuestion()
 }
 
-function setNextQuestion (question) {
+function setNextQuestion() {
     displayQuestion(randomizedQuestions[currentQuestionIndex])
 }
 
-function displayQuestion() {
+function displayQuestion(question) {
     questionElement.innerText = question.question
     question.answer.forEach(answer => {
         const button = document.createElement('button')  
@@ -41,6 +41,7 @@ function displayQuestion() {
         }
         button.addEventListener('click', selectAnswer)
         answerButtonsElement.appendChild(button)
+        console.log('Displaying question')
     });
 }
 

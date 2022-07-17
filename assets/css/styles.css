@@ -32,10 +32,6 @@ h1 {
   text-shadow: 3px 2px rgb(57, 112, 231);
 }
 
-#welcome-text {
-  
-}
-
 #welcome-text span {
   color: rgb(199, 6, 38);
 }
@@ -75,6 +71,10 @@ button {
     margin: 0 10px;
   }
 
+  .btn:hover, btn:active {
+    border-color: lime;
+  }
+
   .question-letter {
     font-size: 3rem;
   }
@@ -105,12 +105,20 @@ button {
     background-color: yellow;
   }
 
+  #next-btn:hover {
+    border-color: white;
+  }
+
   #next-btn::after {
     content: attr(next);
   }
 
   #start-btn {
     background-color: rgb(24, 209, 24);
+  }
+
+  #start-btn:hover {
+    border-color: white;
   }
 
   #score-area {
