@@ -52,7 +52,7 @@ h1 {
   width: 85%;
   height: 65vh;
   max-height: 340px;
-  max-width: 830px;
+  max-width: 900px;
   margin-left: auto;
   margin-right: auto;
   margin-top: 120px;
@@ -117,18 +117,23 @@ button {
     border-color: white;
   }
 
+  .hide {
+    display: block;
+  }
+
 /* ADDED */
 
 #timer{
-  position: absolute;
   height : 100px;
   width : 200px;
   bottom : 0px;
   text-align: center;
 }
+
 #counter{
   font-size: 3em;
 }
+
 #btimeGauge{
   width : 150px;
   height : 10px;
@@ -136,6 +141,7 @@ button {
   background-color: lightgray;
   margin-left : 25px;
 }
+
 #timeGauge{
   height : 10px;
   border-radius: 10px;
@@ -143,12 +149,19 @@ button {
   margin-top : -10px;
   margin-left : 25px;
 }
+
 #score-prog-container{
   width : 100%;
   padding:5px;
   padding-top: 20px;
-  text-align: right;
+  display: flex;
+  justify-content: space-between;
 }
+
+#progress {
+  padding-top: 50px;
+}
+
 .prog{
   width : 25px;
   height : 25px;
@@ -158,7 +171,8 @@ button {
   margin-left : 5px;
   margin-right : 5px;
 }
-#scoreContainer{
+
+#score-container{
   margin : 20px auto;
   background-color: white;
   opacity: 0.8;
@@ -169,11 +183,13 @@ button {
   position: relative;
   display: none;
 }
+
 #scoreContainer img{
   position: absolute;
   top:100px;
   left:325px;
 }
+
 #scoreContainer p{
   position: absolute;
   display: block;
@@ -193,10 +209,5 @@ button {
   justify-content: center;
   margin: 0 auto;
   margin-bottom: 30px;
-}
-#qImg img{
-  width : 350px;
-  height : 200px;
-  border-top-left-radius: 5px;
 }
 

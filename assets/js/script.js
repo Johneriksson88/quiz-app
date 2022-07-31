@@ -11,9 +11,10 @@ const answerD = document.getElementById("answerD")
 const counter = document.getElementById("counter")
 const timeGauge = document.getElementById("timeGauge")
 const progress = document.getElementById("progress")
-const scoreDiv = document.getElementById("scoreContainer")
+const scoreDiv = document.getElementById("score-container")
+let shuffledQuestions
 
-// The array of questions, answers and responding images
+// The array of questions, answers and corresponding images
 
 let questions = [
     {
@@ -76,14 +77,17 @@ const questionTime = 10
 const gaugeWidth = 150
 const gaugeUnit = gaugeWidth / questionTime
 
-
-
-renderQuestion()
-renderProgress()
-renderCounter()
-TIMER = setInterval(renderCounter,1000)
-
 // Start the quiz
+
+function startQuiz() {
+    shuffledQuestions = questions.sort(() => Math.random() - .5)
+    renderQuestion()
+    renderProgress()
+    renderCounter()
+    TIMER = setInterval(renderCounter,1000)
+}
+
+startQuiz()
 
 // Rendering the 10 second counter
 
@@ -94,13 +98,23 @@ function renderCounter() {
         count++
     } else {
         count = 0
+        answerIsInCorrect()
+        if(runningQuestion < lastQuestion) {
+            console.log("Showing next question")
+            runningQuestion++
+            renderQuestion()
+    } else {
+        clearInterval(TIMER)
+        scoreRender()
+    }
     }
 }
 
 // Rendering the question and answers
 
 function renderQuestion() {
-    let q = questions[runningQuestion]
+    console.log("Rendered new question")
+    let q = shuffledQuestions[runningQuestion]
     question.innerHTML = "<p>"+ q.question +"</p>"
     qImg.innerHTML = "<img src="+ q.imgSrc +">"
     answerA.innerHTML = q.answerA
@@ -121,18 +135,35 @@ function renderProgress() {
 
 function checkAnswer(answer){
     if(answer == questions[runningQuestion].correct) {
+        console.log("Answer was correct")
         score++
         answerIsCorrect()
     } else {
+        console.log("Answer was incorrect")
         answerIsInCorrect()
+    }
+    count = 0
+    if(runningQuestion < lastQuestion) {
+        console.log("Showing next question")
+        runningQuestion++
+        renderQuestion()
+    } else {
+        clearInterval(TIMER)
     }
 }
 
 function answerIsCorrect() {
     console.log(runningQuestion)
-    document.getElementById(runningQuestion).style.backgroundColor = "#0f0"
+    document.getElementById(runningQuestion).classList.add('correct')
 }
 
 function answerIsInCorrect() {
-    document.getElementById(runningQuestion).style.backgroundColor = "#f00"
+    console.log(runningQuestion)
+    document.getElementById(runningQuestion).classList.add('incorrect')
+}
+
+function scoreRender() {
+    console.log("Quiz ended")
+    scoreDiv.classList.remove('hide')
+    scoreDiv.innerHTML = "You got " + score + " out of " + questions.length + " answers right!"
 }
