@@ -1,154 +1,138 @@
-const startButton = document.getElementById('start-btn')
-var nextButton = document.getElementById('next-btn')
-var correct
-const questionContainerElement = document.getElementById('question-container')
-let shuffledQuestions, currentQuestionIndex
-const questionElement = document.getElementById('question')
-const answerButtonsElement = document.getElementById('answer-buttons')
-startButton.addEventListener('click', startGame)
-let score
-let scoreElement = document.getElementById('score')
+// Connect constants with HTML elements
 
-nextButton.addEventListener('click', () => {
-    currentQuestionIndex++
-    setNextQuestion()
-} )
+const start = document.getElementById("start-btn")
+const quiz = document.getElementById("quiz")
+const question = document.getElementById("question")
+const qImg = document.getElementById("qImg")
+const answerA = document.getElementById("answerA")
+const answerB = document.getElementById("answerB")
+const answerC = document.getElementById("answerC")
+const answerD = document.getElementById("answerD")
+const counter = document.getElementById("counter")
+const timeGauge = document.getElementById("timeGauge")
+const progress = document.getElementById("progress")
+const scoreDiv = document.getElementById("scoreContainer")
 
-function startGame() {
-    score = 0
-    console.log('Started game')
-    startButton.classList.add('hide')
-    questionsContainer = document.getElementById('quiz-container')
-    questionsContainer.classList.remove('hide')
-    welcomeText = document.getElementById('welcome-text')
-    welcomeText.classList.add('hide')
-    nextButton = document.getElementById('next-btn')
-    nextButton.classList.remove('hide')
-    shuffledQuestions = questions.sort(() => Math.random() - .5)
-    currentQuestionIndex = 0
-    setNextQuestion()
-}
+// The array of questions, answers and responding images
 
-function setNextQuestion() {
-    resetState()
-    showQuestion(shuffledQuestions[currentQuestionIndex])
-}
-
-function showQuestion(question) {
-    questionElement.innerText = question.question
-    question.answers.forEach(answer => {
-      const button = document.createElement('button')
-      button.innerText = answer.text
-      button.classList.add('btn')
-      if (answer.correct) {
-        button.dataset.correct = answer.correct
-      }
-      button.addEventListener('click', selectAnswer)
-      answerButtonsElement.appendChild(button)
-    })
-  }
-
-function selectAnswer(e) {
-    const selectedButton = e.target
-    const correct = selectedButton.dataset.correct
-    setStatusClass(document.body, correct)
-    Array.from(answerButtonsElement.children).forEach(button => {
-      setStatusClass(button, button.dataset.correct)
-    })
-    if (shuffledQuestions.length > currentQuestionIndex + 1) {
-      nextButton.classList.remove('hide')
-    } else {
-      startButton.innerText = 'Restart'
-      startButton.classList.remove('hide')
-    }
-  }
-
-function setStatusClass(element, correct) {
-  clearStatusClass(element)
-  if (correct) {
-    element.classList.add('correct')
-    incrementScore
-  } else {
-    element.classList.add('incorrect')
-  }
-}
-
-function clearStatusClass(element) {
-    if (correct) {
-        element.classList.remove('correct')
-    } else {
-        element.classList.remove('incorrect')
-    }
-}
-
-function resetState() {
-    clearStatusClass(document.body)
-    nextButton.classList.add('hide')
-    while (answerButtonsElement.firstChild) {
-        answerButtonsElement.removeChild
-        (answerButtonsElement.firstChild)
-
-    }
-}
-
-function incrementScore() {
-    score++
-    scoreElement.document.innerText = score
-}
-
-var questions = [
+let questions = [
     {
         question: 'What is the capital of Australia?',
-        answers: [
-            { text: 'Sydney', correct: false },
-            { text: 'Canberra', correct: true },
-            { text: 'Melbourne', correct: false},
-            { text: 'Perth', correct: false}
-        ]
-    },
-    {
+        imgSrc: "assets/images/australia.png",
+        answerA: 'Sydney',
+        answerB: 'Canberra',
+        answerC: 'Melbourne',
+        answerD: 'Perth',
+        correct: 'B'
+    },{
         question: 'Which single person has won the most Academy Awards of all time?',
-        answers: [
-            { text: 'Christopher Lee', correct: false },
-            { text: 'Walt Disney', correct: true },
-            { text: 'Meryl Streep', correct: false},
-            { text: 'James Cameron', correct: false}
-        ]
-    },
-    {
+        imgSrc: "assets/images/academy_award.png",
+        answerA: 'Christopher Lee',
+        answerB: 'Walt Disney',
+        answerC: 'Meryl Streep',
+        answerD: 'James Cameron',
+        correct: 'B'
+    },{
         question: 'What year did World War I start?',
-        answers: [
-            { text: '1914', correct: true },
-            { text: '1899', correct: false },
-            { text: '1938', correct: false},
-            { text: '1922', correct: false}
-        ]
-    },
-    {
+        imgSrc: "assets/images/ww1.png",
+        answerA: '1914',
+        answerB: '1899',
+        answerC: '1938',
+        answerD: '1922',
+        correct: 'A'
+    },{
         question: 'How many time zones are there in the world?',
-        answers: [
-            { text: '12', correct: false },
-            { text: '36', correct: false },
-            { text: '22', correct: false},
-            { text: '24', correct: true}
-        ]
-    },
-    {
+        imgSrc: "assets/images/time_zones.png",
+        answerA: '12',
+        answerB: '36',
+        answerC: '22',
+        answerD: '24',
+        correct: 'D'
+    },{
         question: 'Which is the largest land living mammal?',
-        answers: [
-            { text: 'Polar bear', correct: false },
-            { text: 'Elephant', correct: true },
-            { text: 'Hippo', correct: false},
-            { text: 'Grizzly bear', correct: false}
-        ]
-    },
-    {
+        imgSrc: "assets/images/blue_whale.png",
+        answerA: 'Polar bear',
+        answerB: 'Elephant',
+        answerC: 'Hippo',
+        answerD: 'Grizzly bear',
+        correct: 'B'
+    },{
         question: 'Which city has the largest population in the world?',
-        answers: [
-            { text: 'Delhi', correct: false },
-            { text: 'Mexico City', correct: false },
-            { text: 'Tokyo', correct: true},
-            { text: 'London', correct: false}
-        ]
+        imgSrc: "assets/images/city.png",
+        answerA: 'Delhi',
+        answerB: 'Mexico City',
+        answerC: 'Tokyo',
+        answerD: 'London',
+        correct: 'C'
     }
 ]
+
+const lastQuestion = questions.length - 1
+let runningQuestion = 0
+let TIMER
+let score = 0
+let count = 0
+const questionTime = 10
+const gaugeWidth = 150
+const gaugeUnit = gaugeWidth / questionTime
+
+
+
+renderQuestion()
+renderProgress()
+renderCounter()
+TIMER = setInterval(renderCounter,1000)
+
+// Start the quiz
+
+// Rendering the 10 second counter
+
+function renderCounter() {
+    if(count <= questionTime) {
+        counter.innerHTML = count
+        timeGauge.style.width = count * gaugeUnit + "px"
+        count++
+    } else {
+        count = 0
+    }
+}
+
+// Rendering the question and answers
+
+function renderQuestion() {
+    let q = questions[runningQuestion]
+    question.innerHTML = "<p>"+ q.question +"</p>"
+    qImg.innerHTML = "<img src="+ q.imgSrc +">"
+    answerA.innerHTML = q.answerA
+    answerB.innerHTML = q.answerB
+    answerC.innerHTML = q.answerC
+    answerD.innerHTML = q.answerD
+}
+
+
+function renderProgress() {
+    for (let qIndex = 0; qIndex <= lastQuestion; qIndex++) {
+        progress.innerHTML += "<div class='prog' id="+ qIndex +"</div>"
+        console.log("Rendered progress")
+    }
+}
+
+// Check for the correct answer 
+
+function checkAnswer(answer){
+    if(answer == questions[runningQuestion].correct) {
+        score++
+        answerIsCorrect()
+    } else {
+        answerIsInCorrect()
+    }
+}
+
+function answerIsCorrect() {
+    console.log(runningQuestion)
+    document.getElementById(runningQuestion).style.backgroundColor = "#0f0"
+}
+
+function answerIsInCorrect() {
+    document.getElementById(runningQuestion).style.backgroundColor = "#f00"
+}
