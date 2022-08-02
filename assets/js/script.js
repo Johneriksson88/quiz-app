@@ -12,7 +12,7 @@ const counter = document.getElementById("counter")
 const timeGauge = document.getElementById("timeGauge")
 const progress = document.getElementById("progress")
 const scoreDiv = document.getElementById("score-container")
-let shuffledQuestions
+const tryAgainBtn = document.getElementById("try-again-btn")
 
 // The array of questions, answers and corresponding images
 
@@ -68,6 +68,9 @@ let questions = [
     }
 ]
 
+// Variables
+
+let shuffledQuestions
 const lastQuestion = questions.length - 1
 let runningQuestion = 0
 let TIMER
@@ -77,10 +80,26 @@ const questionTime = 10
 const gaugeWidth = 150
 const gaugeUnit = gaugeWidth / questionTime
 
+// Render the coming question
+
+function renderQuestion() {
+    console.log("Rendered new question")
+    let q = shuffledQuestions[runningQuestion]
+    question.innerHTML = "<p>"+ q.question +"</p>"
+    qImg.innerHTML = "<img src="+ q.imgSrc +">"
+    answerA.innerHTML = q.answerA
+    answerB.innerHTML = q.answerB
+    answerC.innerHTML = q.answerC
+    answerD.innerHTML = q.answerD
+}
+
+
+
 // Start the quiz
 
 function startQuiz() {
     shuffledQuestions = questions.sort(() => Math.random() - .5)
+    score = 0
     renderQuestion()
     renderProgress()
     renderCounter()
@@ -89,7 +108,16 @@ function startQuiz() {
 
 startQuiz()
 
-// Rendering the 10 second counter
+// Render the progress bar
+
+function renderProgress() {
+    for (let qIndex = 0; qIndex <= lastQuestion; qIndex++) {
+        progress.innerHTML += "<div class='prog' id="+ qIndex +"></div></div>"
+        console.log("Rendered progress")
+    }
+}
+
+// Render the 10 second counter
 
 function renderCounter() {
     if(count <= questionTime) {
@@ -110,34 +138,14 @@ function renderCounter() {
     }
 }
 
-// Rendering the question and answers
-
-function renderQuestion() {
-    console.log("Rendered new question")
-    let q = shuffledQuestions[runningQuestion]
-    question.innerHTML = "<p>"+ q.question +"</p>"
-    qImg.innerHTML = "<img src="+ q.imgSrc +">"
-    answerA.innerHTML = q.answerA
-    answerB.innerHTML = q.answerB
-    answerC.innerHTML = q.answerC
-    answerD.innerHTML = q.answerD
-}
-
-
-function renderProgress() {
-    for (let qIndex = 0; qIndex <= lastQuestion; qIndex++) {
-        progress.innerHTML += "<div class='prog' id="+ qIndex +"</div>"
-        console.log("Rendered progress")
-    }
-}
-
-// Check for the correct answer 
+// Check for the correct answer. Called by clicking an answer button
 
 function checkAnswer(answer){
     if(answer == questions[runningQuestion].correct) {
         console.log("Answer was correct")
         score++
         answerIsCorrect()
+        document.getElementById(runningQuestion).classList.add('correct')
     } else {
         console.log("Answer was incorrect")
         answerIsInCorrect()
@@ -149,8 +157,11 @@ function checkAnswer(answer){
         renderQuestion()
     } else {
         clearInterval(TIMER)
+        scoreRender()
     }
 }
+
+// Set progress bar dot to green if answer is correct, red if incorrect
 
 function answerIsCorrect() {
     console.log(runningQuestion)
@@ -162,8 +173,11 @@ function answerIsInCorrect() {
     document.getElementById(runningQuestion).classList.add('incorrect')
 }
 
+// Show the score and Try again button at end of quiz
+
 function scoreRender() {
     console.log("Quiz ended")
     scoreDiv.classList.remove('hide')
+    tryAgainBtn.classList.remove('hide')
     scoreDiv.innerHTML = "You got " + score + " out of " + questions.length + " answers right!"
 }
