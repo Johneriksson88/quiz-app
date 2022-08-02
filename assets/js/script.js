@@ -19,7 +19,7 @@ const tryAgainBtn = document.getElementById("try-again-btn")
 let questions = [
     {
         question: 'What is the capital of Australia?',
-        imgSrc: "assets/images/australia.png",
+        imgSrc: "assets/images/australian_flag.png",
         answerA: 'Sydney',
         answerB: 'Canberra',
         answerC: 'Melbourne',
@@ -27,7 +27,7 @@ let questions = [
         correct: 'B'
     },{
         question: 'Which single person has won the most Academy Awards of all time?',
-        imgSrc: "assets/images/academy_award.png",
+        imgSrc: "assets/images/academy_awards.png",
         answerA: 'Christopher Lee',
         answerB: 'Walt Disney',
         answerC: 'Meryl Streep',
@@ -35,7 +35,7 @@ let questions = [
         correct: 'B'
     },{
         question: 'What year did World War I start?',
-        imgSrc: "assets/images/ww1.png",
+        imgSrc: "assets/images/world_war_1_trench.png",
         answerA: '1914',
         answerB: '1899',
         answerC: '1938',
@@ -43,7 +43,7 @@ let questions = [
         correct: 'A'
     },{
         question: 'How many time zones are there in the world?',
-        imgSrc: "assets/images/time_zones.png",
+        imgSrc: "assets/images/five_time_zone_clocks.png",
         answerA: '12',
         answerB: '36',
         answerC: '22',
@@ -59,7 +59,7 @@ let questions = [
         correct: 'B'
     },{
         question: 'Which city has the largest population in the world?',
-        imgSrc: "assets/images/city.png",
+        imgSrc: "assets/images/city_skyline.png",
         answerA: 'Delhi',
         answerB: 'Mexico City',
         answerC: 'Tokyo',
@@ -80,6 +80,16 @@ const questionTime = 10
 const gaugeWidth = 150
 const gaugeUnit = gaugeWidth / questionTime
 
+
+// Adds alt text to the images
+
+function loadAltText() {
+    for(let i = 0; i < questions.length; i++) {
+        let imgName = shuffledQuestions[runningQuestion].imgSrc
+        imgElement = document.getElementById('qImg').firstElementChild.alt = imgName.replace('assets/images/','').replace('.png', '').replace('_', ' ')
+    }
+}
+
 // Render the coming question
 
 function renderQuestion() {
@@ -87,13 +97,12 @@ function renderQuestion() {
     let q = shuffledQuestions[runningQuestion]
     question.innerHTML = "<p>"+ q.question +"</p>"
     qImg.innerHTML = "<img src="+ q.imgSrc +">"
+    loadAltText()
     answerA.innerHTML = q.answerA
     answerB.innerHTML = q.answerB
     answerC.innerHTML = q.answerC
     answerD.innerHTML = q.answerD
 }
-
-
 
 // Start the quiz
 
@@ -113,8 +122,8 @@ startQuiz()
 function renderProgress() {
     for (let qIndex = 0; qIndex <= lastQuestion; qIndex++) {
         progress.innerHTML += "<div class='prog' id="+ qIndex +"></div></div>"
-        console.log("Rendered progress")
     }
+    console.log("Rendered progress")
 }
 
 // Render the 10 second counter
