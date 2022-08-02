@@ -42,7 +42,9 @@ button {
   cursor: pointer;
 }
 
-/* welcome text on starting page */
+/* STARGING PAGE */
+
+/* welcome text */
 
 #welcome-text span {
   color: rgb(199, 6, 38);
@@ -112,7 +114,7 @@ button {
   background-color: rgb(240, 44, 44);
 }
 
-/* Buttons */
+/* buttons */
 
 .btn {
   font-size: 2.1rem;
@@ -134,6 +136,9 @@ button {
   background-color: rgb(24, 209, 24);
   font-size: 46px;
   color: black;
+  position: absolute;
+  top: 400px;
+  left: 740px;
 }
 
 .try-again-btn:hover {
@@ -158,13 +163,13 @@ btn:active {
   border-color: rgb(60, 158, 51);
 }
 
-/* Hide class to be able to show/hide elements in js */
+/* hide class to be able to show/hide elements in js */
 
 .hide {
   display: none;
 }
 
-/* Timer */
+/* timer */
 
 #timer {
   height: 100px;
@@ -181,14 +186,14 @@ btn:active {
   width: 150px;
   height: 10px;
   border-radius: 10px;
-  background-color: lightgray;
+  background-color: rgb(236, 223, 223);
   margin-left: 25px;
 }
 
 #timeGauge {
   height: 10px;
   border-radius: 10px;
-  background-color: mediumseagreen;
+  background-color: rgb(47, 153, 44);
   margin-top: -10px;
   margin-left: 25px;
 }
@@ -221,13 +226,13 @@ btn:active {
   margin-right: 5px;
 }
 
-/* end page with score */
+/* end page with result */
 
 #score-container {
   margin: 0 auto;
   background-color: white;
   padding-top: 50px;
-  height: 200px;
+  height: 400px;
   width: 700px;
   border-radius: 5px;
   box-shadow: 0px 5px 15px 0px;
@@ -242,3 +247,12 @@ btn:active {
 }
 
 /* footer */
+
+footer {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  text-align: center;
+  font-weight: 100;
+}
