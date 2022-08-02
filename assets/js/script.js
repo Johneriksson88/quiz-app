@@ -81,7 +81,7 @@ const gaugeWidth = 150
 const gaugeUnit = gaugeWidth / questionTime
 
 
-// Adds alt text to the images
+// Add alt text to the images
 
 function loadAltText() {
     for(let i = 0; i < questions.length; i++) {
@@ -92,7 +92,7 @@ function loadAltText() {
 
 // Render the coming question
 
-function renderQuestion() {
+function setNextQuestion() {
     console.log("Rendered new question")
     let q = shuffledQuestions[runningQuestion]
     question.innerHTML = "<p>"+ q.question +"</p>"
@@ -107,19 +107,19 @@ function renderQuestion() {
 // Start the quiz
 
 function startQuiz() {
-    shuffledQuestions = questions.sort(() => Math.random() - .5)
+    shuffledQuestions = questions.sort(() => Math.random() - 0.5)
     score = 0
-    renderQuestion()
-    renderProgress()
-    renderCounter()
-    TIMER = setInterval(renderCounter,1000)
+    setNextQuestion()
+    renderProgressBar()
+    renderTimer()
+    TIMER = setInterval(renderTimer,1000)
 }
 
 startQuiz()
 
 // Render the progress bar
 
-function renderProgress() {
+function renderProgressBar() {
     for (let qIndex = 0; qIndex <= lastQuestion; qIndex++) {
         progress.innerHTML += "<div class='prog' id="+ qIndex +"></div></div>"
     }
@@ -128,21 +128,21 @@ function renderProgress() {
 
 // Render the 10 second counter
 
-function renderCounter() {
+function renderTimer() {
     if(count <= questionTime) {
         counter.innerHTML = count
         timeGauge.style.width = count * gaugeUnit + "px"
         count++
     } else {
         count = 0
-        answerIsInCorrect()
+        answerIncorrect()
         if(runningQuestion < lastQuestion) {
             console.log("Showing next question")
             runningQuestion++
-            renderQuestion()
+            setNextQuestion()
     } else {
         clearInterval(TIMER)
-        scoreRender()
+        renderEndScreen()
     }
     }
 }
@@ -153,40 +153,47 @@ function checkAnswer(answer){
     if(answer == questions[runningQuestion].correct) {
         console.log("Answer was correct")
         score++
-        answerIsCorrect()
+        answerCorrect()
         document.getElementById(runningQuestion).classList.add('correct')
     } else {
         console.log("Answer was incorrect")
-        answerIsInCorrect()
+        answerIncorrect()
     }
     count = 0
     if(runningQuestion < lastQuestion) {
         console.log("Showing next question")
         runningQuestion++
-        renderQuestion()
+        setNextQuestion()
     } else {
         clearInterval(TIMER)
-        scoreRender()
+        renderEndScreen()
     }
 }
 
 // Set progress bar dot to green if answer is correct, red if incorrect
 
-function answerIsCorrect() {
+function answerCorrect() {
     console.log(runningQuestion)
     document.getElementById(runningQuestion).classList.add('correct')
 }
 
-function answerIsInCorrect() {
+function answerIncorrect() {
     console.log(runningQuestion)
     document.getElementById(runningQuestion).classList.add('incorrect')
 }
 
-// Show the score and Try again button at end of quiz
+// Show the score and 'Try again' button at end of quiz
 
-function scoreRender() {
+function renderEndScreen() {
     console.log("Quiz ended")
     scoreDiv.classList.remove('hide')
     tryAgainBtn.classList.remove('hide')
-    scoreDiv.innerHTML = "You got " + score + " out of " + questions.length + " answers right!"
+    let resultText = (score == 0) ? "Zero? Really?" :
+                     (score == 1) ? "You're not really trying, are you?" :
+                     (score == 2) ? "You can do better." :
+                     (score == 3) ? "Mediocre." :
+                     (score == 4) ? "Good job!" :
+                     (score == 5) ? "Almost full score. Nice!" :
+                     "Congratulations, you are a quizmaster!";
+    scoreDiv.innerHTML = "You got " + score + " out of " + questions.length + " answers right. <br> " + resultText
 }
