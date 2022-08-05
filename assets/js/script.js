@@ -12,6 +12,7 @@ const counter = document.getElementById("counter")
 const timeGauge = document.getElementById("timeGauge")
 const progress = document.getElementById("progress")
 const scoreDiv = document.getElementById("score-container")
+const scoreDivContent = document.getElementById("score-content")
 const tryAgainBtn = document.getElementById("try-again-btn")
 
 // The array of questions, answers and corresponding images
@@ -186,8 +187,7 @@ function answerIncorrect() {
 
 function renderEndScreen() {
     console.log("Quiz ended")
-    scoreDiv.classList.remove('hide')
-    tryAgainBtn.classList.remove('hide')
+    scoreDiv.style.display = "block"
     let resultText = (score == 0) ? "Zero? Really?" :
                      (score == 1) ? "You're not really trying, are you?" :
                      (score == 2) ? "You can do better." :
@@ -195,5 +195,5 @@ function renderEndScreen() {
                      (score == 4) ? "Good job!" :
                      (score == 5) ? "Almost full score. Nice!" :
                      "Congratulations, you are a quizmaster!";
-    scoreDiv.innerHTML = "You got " + score + " out of " + questions.length + " answers right. <br> " + resultText
+    scoreDivContent.innerHTML = "<div class='result-text'> You got <span>" + score + "</span> out of <span>" + questions.length + "</span> answers right. <br></div>" + resultText + '<a href="game.html" class="try-again-btn" id="try-again-btn" onclick="startQuiz">Try again!</a>'
 }

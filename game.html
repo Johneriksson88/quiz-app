@@ -2,13 +2,16 @@
 <html lang="en">
 
 <head>
+
+    <!-- META DATA -->
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="A simple quiz game">
     <meta name="keywords" content="Quiztions, quiz, common knowledge quiz">
     <meta name="author" content="John Eriksson">
 
-    <!-- font awesome -->
+    <!-- FONT AWESOME -->
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
         integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
@@ -17,6 +20,9 @@
 </head>
 
 <body>
+
+    <!-- QUIZ CONTAINER-->
+
     <div id="quiz-container">
             <div id="question">
                 <h1>Question here</h1>
@@ -40,8 +46,18 @@
             
 
     </div>
-    <div id="score-container" class="hide"></div>
-    <a href="game.html" class="try-again-btn hide" id="try-again-btn" onclick="startQuiz">Try again!</a>
+
+    <!-- POPUP SCORE SCREEN -->
+
+    <div id="score-container">
+        <div id="score-content"></div>
+        </div>
+        
+    </div>
+    
+
+    <!-- FOOTER -->
+
     <footer><h3>© John Eriksson 2022</h3></footer>
     
     <script src="assets/js/script.js"></script>
