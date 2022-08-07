@@ -65,6 +65,15 @@ You should also mention in this section any interesting bugs or problems you dis
 
 If this section grows too long, you may want to split it off into a separate file and link to it from here.
 
+- The Website was tested on Google Chrome, Internet Explorer, Microsoft Edge and Safari browsers.
+- The website was viewed on a variety of devices such as Desktop, Laptop, iPhone12, iPhone 13 & iPad mini.
+- A large amount of testing was done to ensure that all elements displayed properly on different screen sizes.
+- Friends and family members were asked to review the site and documentation to point out any bugs and/or user experience issues.
+
+### Responsiveness
+
+- The most testing has been making sure the app works well on different screen sizes. On the smaller screen sizes i removed the images since they took up too much vertical screen space . I wanted the user to be able to see the question and answers without much scrolling while under time pressure.
+- I encountered a bug where the footer showed up on top of the rendered elements in the progress bar. Since the progress bar is created in the javascript the footer didn't take that content into consideration when placing itself on the bottom. I tried to work around this problem by googling, but no solution i encountered worked. The result was to remove the footer at a breaking point in the screen width. 
 
 ### Validator Testing 
 
@@ -119,22 +128,4 @@ You can break the credits section up into Content and Media, depending on what y
   - Australian flag: Vector graphics image by Ian Fieggen
   - Time zone clocks: artpartner-images / Getty Images
   - WWI trench: (C) The print Collector/Heritage Images/picture alliance
-
-
-
-## Other General Project Advice
-
-Below you will find a couple of extra tips that may be helpful when completing your project. Remember that each of these projects will become part of your final portfolio so it’s important to allow enough time to showcase your best work! 
-
-- One of the most basic elements of keeping a healthy commit history is with the commit message. When getting started with your project, read through [this article](https://chris.beams.io/posts/git-commit/) by Chris Beams on How to Write  a Git Commit Message 
-  - Make sure to keep the messages in the imperative mood 
-
-- When naming the files in your project directory, make sure to consider meaningful naming of files, point to specific names and sections of content.
-  - For example, instead of naming an image used ‘image1.png’ consider naming it ‘landing_page_img.png’. This will ensure that there are clear file paths kept. 
-
-- Do some extra research on good and bad coding practices, there are a handful of useful articles to read, consider reviewing the following list when getting started:
-  - [Writing Your Best Code](https://learn.shayhowe.com/html-css/writing-your-best-code/)
-  - [HTML & CSS Coding Best Practices](https://medium.com/@inceptiondj.info/html-css-coding-best-practice-fadb9870a00f)
-  - [Google HTML/CSS Style Guide](https://google.github.io/styleguide/htmlcssguide.html#General)
-
-Getting started with your Portfolio Projects can be daunting, planning your project can make it a lot easier to tackle, take small steps to reach the final outcome and enjoy the process! 
+- Font was imported from Google Fonts.
