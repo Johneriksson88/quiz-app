@@ -283,7 +283,8 @@ btn:active {
 footer {
   width: 100%;
   text-align: center;
-  top: 0;
+  position: fixed;
+  bottom: 0;
 }
 
 @media screen and (max-width: 730px) {
