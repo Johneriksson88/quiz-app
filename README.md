@@ -1,12 +1,10 @@
 # Quiztions - a quiz app
 
-Quiztions in a simple quiz application designed to test the users in general knowledge. It's a fully responsive little JavaScript game made for people who want to test their knowledge in a broad sense. When finished the user gets a score and a short message grading them.
+Quiztions in a simple quiz application designed to test the users in general knowledge. It's a fully responsive little JavaScript game made for people who want to test their knowledge in a broad sense, no categories. When finished the user gets a score and a short message grading them.
 
 ![Responsice Mockup](assets/images/screenshots/amiresponsive_quiz_app.png)
 
 ## Features 
-
-In this section, you should go over the different parts of your project, and describe each in a sentence or so. You will need to explain what value each of the features provides for the user, focusing on who this website is for, what it is that they want to achieve and how your project is the best way to help them achieve these things.
 
 ### Existing Features
 
@@ -14,29 +12,26 @@ In this section, you should go over the different parts of your project, and des
 
   - The starting page welcomes the user to the game. A button to start the game is shown.
 
-![Logo](assets/images/screenshots/welcome_page.png)
+![Starting Page](assets/images/screenshots/welcome_page.png)
 
 - __The Quiz Page__
 
   - This page shows the quiz game. The user will be able to easily see the question, a corresponding image (not on mobile) and the four answers they can chose from. A timer and progress bar is shown on the bottom.
 
-![Game](media/love_maths_icons.png)
+![Quiz](assets/images/screenshots/quiz.png)
 
 - __The Question section__
 
   - The question will pop up here. The order of the questions are randomized. 
 
-![Question](media/love_maths_question.png)
 - __The image section__
 
   - For every question there is a corresponding image that shows under the question.
-  - The image is not shown in smaller screen widths in order to make the screen less cluttered.
+  - The image is not shown in smaller screen widths in order for the user not having to scroll mid question.
 
 - __The answer section__
 
   - This section has four answer buttons prefixed with A, B, C and D (not prefixed on mobile). When the user clicks a button a function is called that checks if it's the correct answer.
-
-![score](media/love_maths_answer.png)
 
 - __The timer__
 
@@ -45,6 +40,13 @@ In this section, you should go over the different parts of your project, and des
 - __The progress bar__
 
   - At the bottom right there is a progress bar with one circle for every question. The circle will turn green/red depending on a correct/incorrect answer for every question. Here the user can see where they answered right or wrong. 
+
+- __The score screen__
+  
+  - When all the questions are answered, a score screen pops up that says how many answers the user got correct and a short grading message.
+  - The user can click the link "Try again!" to retake the quiz.
+
+![Score screen](assets/images/screenshots/score_screen.png)
 
 ### Features Left to Implement
 
@@ -82,7 +84,7 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
 
 ### Unfixed Bugs
 
-At the moment there are no known bugs on the app.
+At the moment there are no known bugs in the application.
 
 ## Deployment
 
@@ -106,11 +108,17 @@ You can break the credits section up into Content and Media, depending on what y
 - Instructions on how to create a quiz app were mainly taken from [this](https://www.youtube.com/watch?v=49pYIMygIcU&ab_channel=CodeExplained) video tutorial by YouTube user Code Explained
 - The GitHub repo of the tutorial can be found [here](https://github.com/CodeExplainedRepo/Multiple-Choice-Quiz-JavaScript)
 - Code that was directly derived from this tutorial is credited in comments in the JavaScript-file
+- Another helpful video tutorial was [this](https://www.youtube.com/watch?v=riDzcEQbX6k&t=1216s&ab_channel=WebDevSimplified) one from YouTube user Web Dev Simplified
 
 ### Media
 
-- The photos used on the home and sign up page are from This Open Source site
-- The images used for the gallery page were taken from this other open source site
+- The images were found on google images and the credits are as follows:
+  - Academy awards: MATT SAYLES/A.M.P.A.S. VIA GETTY IMAGES
+  - Blue whale: Mike Johnson
+  - Tokyo skyline: https://livejapan.com/en/article-a0001580/ - photographer not mentioned
+  - Australian flag: Vector graphics image by Ian Fieggen
+  - Time zone clocks: artpartner-images / Getty Images
+  - WWI trench: (C) The print Collector/Heritage Images/picture alliance
 
 
 
