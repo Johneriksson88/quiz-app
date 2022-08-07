@@ -127,7 +127,7 @@ function renderProgressBar() {
     console.log("Rendered progress")
 }
 
-// Render the 10 second counter
+// Render the 10 second timer
 
 function renderTimer() {
     if(count <= questionTime) {
@@ -183,7 +183,7 @@ function answerIncorrect() {
     document.getElementById(runningQuestion).classList.add('incorrect')
 }
 
-// Show the score and 'Try again' button at end of quiz
+// Show the score and result feedback
 
 function renderEndScreen() {
     console.log("Quiz ended")
@@ -195,5 +195,6 @@ function renderEndScreen() {
                      (score == 4) ? "Good job!" :
                      (score == 5) ? "Almost full score. Nice!" :
                      "Congratulations, you are a quizmaster!";
-    scoreDivContent.innerHTML = "<div class='result-text'> You got <span>" + score + "</span> out of <span>" + questions.length + "</span> answers right. <br></div>" + resultText + '<a href="game.html" class="try-again-btn" id="try-again-btn" onclick="startQuiz">Try again!</a>'
+    scoreDivContent.innerHTML = "<div class='result-text'> You got <span>" + score + "</span> out of <span>" + questions.length + "</span> answers right. <br>" + resultText + '<a href="game.html" onclick="startQuiz"> Try again!</a></div>'
 }
+
