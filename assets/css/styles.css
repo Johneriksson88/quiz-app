@@ -66,7 +66,7 @@ button {
 
 #quiz-container {
   width: 70%;
-  height: 100vh;
+  max-height: 100vh;
   margin-left: auto;
   margin-right: auto;
   margin-top: 1%;
@@ -77,6 +77,15 @@ button {
   margin-top: 30px;
   font-size: 3rem;
   padding: 0;
+}
+
+@media screen and (max-width: 900px) {
+  #question {
+    font-size: 2rem;
+  }
+  #answers {
+    font-size: 2rem;
+  }
 }
 
 #answers {
@@ -93,14 +102,31 @@ button {
   font-size: 3rem;
 }
 
+@media screen and (max-width: 390px) {
+.question-prefix {
+  display: none;
+}
+
+#answers {
+  gap: 5px;
+}
+
+}
+
 /* quiz images */
 
 #qImg {
+  object-fit: contain;
   width: 350px;
   height: 200px;
   align-items: center;
   justify-content: center;
   margin: 0 auto 20px;
+}
+@media screen and (max-width: 540px) {
+  #quiz-container {
+    width: 95%;
+  }
 }
 
 /* background colors for correct/incorrect answer */
@@ -206,6 +232,7 @@ btn:active {
   border-radius: 50%;
   margin-left: 5px;
   margin-right: 5px;
+  margin-bottom: 0;
 }
 
 /* end page with result */
@@ -231,7 +258,7 @@ btn:active {
   border: 3px solid black;
   border-radius: 10px;
   width: 60%;
-  height: 50%;
+  height: 70%;
   font-size: 32px;
   box-shadow: 0px 5px 15px 0px;
   justify-content: center;
@@ -256,5 +283,11 @@ btn:active {
 footer {
   width: 100%;
   text-align: center;
-  font-weight: 100;
+  top: 0;
+}
+
+@media screen and (max-width: 730px) {
+  footer {
+    display: none;
+  }
 }

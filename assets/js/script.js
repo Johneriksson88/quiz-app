@@ -1,7 +1,5 @@
 // Connect constants with HTML elements
 
-const start = document.getElementById("start-btn")
-const quiz = document.getElementById("quiz")
 const question = document.getElementById("question")
 const qImg = document.getElementById("qImg")
 const answerA = document.getElementById("answerA")
@@ -13,7 +11,6 @@ const timeGauge = document.getElementById("timeGauge")
 const progress = document.getElementById("progress")
 const scoreDiv = document.getElementById("score-container")
 const scoreDivContent = document.getElementById("score-content")
-const tryAgainBtn = document.getElementById("try-again-btn")
 
 // The array of questions, answers and corresponding images
 
