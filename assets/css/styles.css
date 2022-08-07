@@ -210,19 +210,6 @@ btn:active {
 
 /* end page with result */
 
-/*#score-container {
-  display: none;
-  background-color: white;
-  padding-top: 50px;
-  height: 400px;
-  width: 700px;
-  border-radius: 5px;
-  box-shadow: 0px 5px 15px 0px;
-  font-size: 32px;
-  z-index: 1; /* Sit on top 
-  margin-left: 0 auto;
-}*/
-
 #score-container {
   display: none;
   position: fixed;
@@ -233,18 +220,26 @@ btn:active {
   height: 100%; 
   overflow: auto;
   background-color: rgb(0,0,0); 
-  background-color: rgba(0,0,0,0.4); 
+  background-color: rgba(0,0,0,0.4);
+  align-items: center;
+  justify-content: center;
 }
 
 #score-content {
-  background-color: #fefefe; /* 15% from the top and centered */
+  background-color: #fefefe;
   padding: 20px;
   border: 3px solid black;
   border-radius: 10px;
   width: 60%;
-  height: 30%;
+  height: 50%;
   font-size: 32px;
   box-shadow: 0px 5px 15px 0px;
+  justify-content: center;
+  align-items: center;
+}
+
+.result-text {
+  flex-wrap: wrap;
 }
 
 .result-text a{
@@ -253,7 +248,7 @@ btn:active {
 }
 
 .result-text span {
-  color:rgb(156, 156, 243)
+  color:rgb(156, 156, 243);
 }
 
 /* footer */

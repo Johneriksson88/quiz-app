@@ -187,7 +187,7 @@ function answerIncorrect() {
 
 function renderEndScreen() {
     console.log("Quiz ended")
-    scoreDiv.style.display = "block"
+    scoreDiv.style.display = "flex"
     let resultText = (score == 0) ? "Zero? Really?" :
                      (score == 1) ? "You're not really trying, are you?" :
                      (score == 2) ? "You can do better." :
