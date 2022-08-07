@@ -88,7 +88,7 @@ function loadAltText() {
     }
 }
 
-// Render the coming question
+// Render the coming question, derived from https://www.youtube.com/watch?v=49pYIMygIcU&ab_channel=CodeExplained
 
 function setNextQuestion() {
     console.log("Rendered new question")
@@ -102,7 +102,7 @@ function setNextQuestion() {
     answerD.innerHTML = q.answerD
 }
 
-// Start the quiz
+// Start the quiz, derived from https://www.youtube.com/watch?v=49pYIMygIcU&ab_channel=CodeExplained
 
 function startQuiz() {
     shuffledQuestions = questions.sort(() => Math.random() - 0.5)
@@ -115,7 +115,7 @@ function startQuiz() {
 
 startQuiz()
 
-// Render the progress bar
+// Render the progress bar, derived from https://www.youtube.com/watch?v=49pYIMygIcU&ab_channel=CodeExplained
 
 function renderProgressBar() {
     for (let qIndex = 0; qIndex <= lastQuestion; qIndex++) {
@@ -124,7 +124,7 @@ function renderProgressBar() {
     console.log("Rendered progress")
 }
 
-// Render the 10 second timer
+// Render the 10 second timer, derived from https://www.youtube.com/watch?v=49pYIMygIcU&ab_channel=CodeExplained
 
 function renderTimer() {
     if(count <= questionTime) {
@@ -145,7 +145,7 @@ function renderTimer() {
     }
 }
 
-// Check for the correct answer. Called by clicking an answer button
+// Check for the correct answer. Called by clicking an answer button, derived from https://www.youtube.com/watch?v=49pYIMygIcU&ab_channel=CodeExplained
 
 function checkAnswer(answer){
     if(answer == questions[runningQuestion].correct) {
@@ -168,7 +168,7 @@ function checkAnswer(answer){
     }
 }
 
-// Set progress bar dot to green if answer is correct, red if incorrect
+// Set progress bar dot to green if answer is correct, red if incorrect, derived from https://www.youtube.com/watch?v=49pYIMygIcU&ab_channel=CodeExplained
 
 function answerCorrect() {
     console.log(runningQuestion)

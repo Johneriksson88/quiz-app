@@ -73,6 +73,12 @@ button {
   margin-bottom: 0;
 }
 
+@media screen and (max-width: 540px) {
+  #quiz-container {
+    width: 95%;
+  }
+}
+
 #question {
   margin-top: 30px;
   font-size: 3rem;
@@ -123,11 +129,13 @@ button {
   justify-content: center;
   margin: 0 auto 20px;
 }
-@media screen and (max-width: 540px) {
-  #quiz-container {
-    width: 95%;
+
+@media screen and (max-width: 375px) {
+  #qImg {
+    display: none;
   }
 }
+
 
 /* background colors for correct/incorrect answer */
 
