@@ -2,7 +2,7 @@
 
 Quiztions in a simple quiz application designed to test the users in general knowledge. It's a fully responsive little JavaScript game made for people who want to test their knowledge in a broad sense. When finished the user gets a score and a short message grading them.
 
-![Responsice Mockup](media/love_maths_mockup.png)
+![Responsice Mockup](assets/images/screenshots/amiresponsive_quiz_app.png)
 
 ## Features 
 
@@ -10,39 +10,48 @@ In this section, you should go over the different parts of your project, and des
 
 ### Existing Features
 
-- __The Love Maths Logo and Heading__
+- __Starting Page__
 
-  - Featured at the top of the page, the Love Maths logo and heading is easy to see for the user. Upon viewing the page, the user will be able to see the name of the game.
+  - The starting page welcomes the user to the game. A button to start the game is shown.
 
-![Logo](media/love_maths_logo.png)
+![Logo](assets/images/screenshots/welcome_page.png)
 
-- __The Game Area__
+- __The Quiz Page__
 
-  - This section will allow the user to play the maths game. The user will be able to easily see icons for addition,  subtraction, multiplication, and division games.
-  - The user will be able to select the type of maths game they will be playing by clicking on the different icons. 
+  - This page shows the quiz game. The user will be able to easily see the question, a corresponding image (not on mobile) and the four answers they can chose from. A timer and progress bar is shown on the bottom.
 
 ![Game](media/love_maths_icons.png)
 
 - __The Question section__
 
-  - The question section is where the user will be able to see the elementary arithmetic question to answer as part of the game. The user will be able answer the questions in the answer box provide
-  - The user will be able to submit their answer and a pop-up will make it known to the user if they answered correctly. 
+  - The question will pop up here. The order of the questions are randomized. 
 
 ![Question](media/love_maths_question.png)
+- __The image section__
 
-- __The Score Area__
+  - For every question there is a corresponding image that shows under the question.
+  - The image is not shown in smaller screen widths in order to make the screen less cluttered.
 
-  - This section will allow the user to see exactly how many correct and incorrect answers they have provided. 
+- __The answer section__
+
+  - This section has four answer buttons prefixed with A, B, C and D (not prefixed on mobile). When the user clicks a button a function is called that checks if it's the correct answer.
 
 ![score](media/love_maths_answer.png)
 
-For some/all of your features, you may choose to reference the specific project files that implement them.
+- __The timer__
 
-In addition, you may also use this section to discuss plans for additional features to be implemented in the future:
+  - At the bottom left there is a timer that counts down from 10 seconds for every question. If no answer is clicked before the timer runs out the user automatically gets an incorrect answer for that question and the next one is shown.
+
+- __The progress bar__
+
+  - At the bottom right there is a progress bar with one circle for every question. The circle will turn green/red depending on a correct/incorrect answer for every question. Here the user can see where they answered right or wrong. 
 
 ### Features Left to Implement
 
-- Another feature idea
+- Randomize the order of the answers
+- High scores with user names
+- At the end, show the user which questions they got wrong and what the correct answer was
+- More questions
 
 ## Testing 
 
@@ -57,32 +66,32 @@ If this section grows too long, you may want to split it off into a separate fil
 
 ### Validator Testing 
 
+The W3C Markup Validator and W3C CSS Validator Services were used to validate every page of the project to ensure there were no syntax errors in the project.
+
 - HTML
-    - No errors were returned when passing through the official [W3C validator](https://validator.w3.org/nu/?doc=https%3A%2F%2Fcode-institute-org.github.io%2Flove-maths%2F)
+    - No errors were returned when passing through the official [W3C validator](https://validator.w3.org/nu/?doc=https%3A%2F%2Fjohneriksson88.github.io%2Fquiz-app%2Fgame.html)
 - CSS
-    - No errors were found when passing through the official [(Jigsaw) validator](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fvalidator.w3.org%2Fnu%2F%3Fdoc%3Dhttps%253A%252F%252Fcode-institute-org.github.io%252Flove-maths%252F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
+    - No errors were found when passing through the official [(Jigsaw) validator](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fjohneriksson88.github.io%2Fquiz-app%2Fgame.html&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=sv)
 - JavaScript
     - No errors were found when passing through the official [Jshint validator](https://jshint.com/)
       - The following metrics were returned: 
-      - There are 11 functions in this file.
-      - Function with the largest signature takes 2 arguments, while the median is 0.
-      - Largest function has 10 statements in it, while the median is 3.
-      - The most complex function has a cyclomatic complexity value of 4 while the median is 2.
+      - There are 10 functions in this file.
+      - Function with the largest signature take 1 arguments, while the median is 0.
+      - Largest function has 14 statements in it, while the median is 3.5.
+      - The most complex function has a cyclomatic complexity value of 7 while the median is 1.5.
 
 ### Unfixed Bugs
 
-You will need to mention unfixed bugs and why they were not fixed. This section should include shortcomings of the frameworks or technologies used. Although time can be a big variable to consider, paucity of time and difficulty understanding implementation is not a valid reason to leave bugs unfixed. 
+At the moment there are no known bugs on the app.
 
 ## Deployment
-
-This section should describe the process you went through to deploy the project to a hosting platform (e.g. GitHub) 
 
 - The site was deployed to GitHub pages. The steps to deploy are as follows: 
   - In the GitHub repository, navigate to the Settings tab 
   - From the source section drop-down menu, select the Master Branch
   - Once the master branch has been selected, the page will be automatically refreshed with a detailed ribbon display to indicate the successful deployment. 
 
-The live link can be found here - https://code-institute-org.github.io/love-maths/
+The live link can be found here - https://johneriksson88.github.io/quiz-app/index.html
 
 
 ## Credits 
@@ -93,9 +102,10 @@ You can break the credits section up into Content and Media, depending on what y
 
 ### Content 
 
-- The text for the Home page was taken from Wikipedia Article A
-- Instructions on how to implement form validation on the Sign Up page was taken from [Specific YouTube Tutorial](https://www.youtube.com/)
-- The icons in the footer were taken from [Font Awesome](https://fontawesome.com/)
+- All text and questions were written by me
+- Instructions on how to create a quiz app were mainly taken from [this](https://www.youtube.com/watch?v=49pYIMygIcU&ab_channel=CodeExplained) video tutorial by YouTube user Code Explained
+- The GitHub repo of the tutorial can be found [here](https://github.com/CodeExplainedRepo/Multiple-Choice-Quiz-JavaScript)
+- Code that was directly derived from this tutorial is credited in comments in the JavaScript-file
 
 ### Media
 
@@ -103,7 +113,6 @@ You can break the credits section up into Content and Media, depending on what y
 - The images used for the gallery page were taken from this other open source site
 
 
-Congratulations on completing your Readme, you have made another big stride in the direction of being a developer! 
 
 ## Other General Project Advice
 

@@ -102,7 +102,7 @@ function setNextQuestion() {
     answerD.innerHTML = q.answerD
 }
 
-// Start the quiz, derived from https://www.youtube.com/watch?v=49pYIMygIcU&ab_channel=CodeExplained
+// Start the quiz, derived from https://www.youtube.com/watch?v=49pYIMygIcU&ab_channel=CodeExplained except for the randomization of questions
 
 function startQuiz() {
     shuffledQuestions = questions.sort(() => Math.random() - 0.5)
