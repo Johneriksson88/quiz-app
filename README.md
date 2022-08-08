@@ -57,14 +57,6 @@ Quiztions in a simple quiz application designed to test the users in general kno
 
 ## Testing 
 
-In this section, you need to convince the assessor that you have conducted enough testing to legitimately believe that the site works well. Essentially, in this part you will want to go over all of your project’s features and ensure that they all work as intended, with the project providing an easy and straightforward way for the users to achieve their goals.
-
-In addition, you should mention in this section how your project looks and works on different browsers and screen sizes.
-
-You should also mention in this section any interesting bugs or problems you discovered during your testing, even if you haven't addressed them yet.
-
-If this section grows too long, you may want to split it off into a separate file and link to it from here.
-
 - The Website was tested on Google Chrome, Internet Explorer, Microsoft Edge and Safari browsers.
 - The website was viewed on a variety of devices such as Desktop, Laptop, iPhone12, iPhone 13 & iPad mini.
 - A large amount of testing was done to ensure that all elements displayed properly on different screen sizes.
@@ -74,6 +66,7 @@ If this section grows too long, you may want to split it off into a separate fil
 
 - The most testing has been making sure the app works well on different screen sizes. On the smaller screen sizes i removed the images since they took up too much vertical screen space . I wanted the user to be able to see the question and answers without much scrolling while under time pressure.
 - I encountered a bug where the footer showed up on top of the rendered elements in the progress bar. Since the progress bar is created in the javascript the footer didn't take that content into consideration when placing itself on the bottom. I tried to work around this problem by googling, but no solution i encountered worked. The result was to remove the footer at a breaking point in the screen width. 
+- I removed the question prefixes (A, B, C and D) on smaller screen sizes since they took up too much horizontal space.
 
 ### Validator Testing 
 

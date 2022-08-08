@@ -7,6 +7,7 @@
 * {
   box-sizing: border-box;
   font-family: Shrikhand, sans-serif;
+  margin: 0;
 }
 
 p {
@@ -21,14 +22,23 @@ a:visited {
   color: black;
 }
 
+html {
+  padding: 0;
+  margin: 0;
+  height: 100vh;
+  width: 100vw;
+}
+
 body {
   background-color: rgb(156, 156, 243);
   padding: 0;
   margin: 0 auto;
   width: 100vw;
-  height: 100vh;
+  height: 90vh;
   text-align: center;
 }
+
+
 
 h1 {
   font-size: 3.5rem;
@@ -66,10 +76,9 @@ button {
 
 #quiz-container {
   width: 70%;
-  max-height: 100vh;
+  /*height: 100vh;*/
   margin-left: auto;
   margin-right: auto;
-  margin-top: 1%;
   margin-bottom: 0;
 }
 
