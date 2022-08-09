@@ -54,6 +54,7 @@ Quiztions in a simple quiz application designed to test the users in general kno
 - High scores with user names
 - At the end, show the user which questions they got wrong and what the correct answer was
 - More questions
+- A fixed number of questions for every run
 
 ## Testing 
 
@@ -64,7 +65,7 @@ Quiztions in a simple quiz application designed to test the users in general kno
 
 ### Responsiveness
 
-- The most testing has been making sure the app works well on different screen sizes. On the smaller screen sizes i removed the images since they took up too much vertical screen space . I wanted the user to be able to see the question and answers without much scrolling while under time pressure.
+- The most testing has been making sure the app works well on different screen sizes. On the smaller screen sizes i removed the images since they took up too much vertical screen space. I wanted the user to be able to see the question and answers without much scrolling while under time pressure.
 - I encountered a bug where the footer showed up on top of the rendered elements in the progress bar. Since the progress bar is created in the javascript the footer didn't take that content into consideration when placing itself on the bottom. I tried to work around this problem by googling, but no solution i encountered worked. The result was to remove the footer at a breaking point in the screen width. 
 - I removed the question prefixes (A, B, C and D) on smaller screen sizes since they took up too much horizontal space.
 
@@ -84,9 +85,14 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
       - Largest function has 14 statements in it, while the median is 3.5.
       - The most complex function has a cyclomatic complexity value of 7 while the median is 1.5.
 
+### Lighthouse test
+
+- The page got a nearly full score on the Lighthouse test in Google Chrome Dev Tools.
+![Lighthouse test](assets/images/lighthouse_test.png)
+
 ### Unfixed Bugs
 
-At the moment there are no known bugs in the application.
+The only bug encountered was that the Javascript doesn't load in Internet Explorer.
 
 ## Deployment
 
